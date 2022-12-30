@@ -5,7 +5,11 @@ import { data } from "../data/data";
 // Return example: [1, 2, ... , N]
 
 export function getAllAverageTemperatures(data) {
-  // Your code goes here...
+  const AvgTemps = [];
+  data.planets.map(planet => {
+    AvgTemps.push(planet.avgTemp)
+  })
+  return AvgTemps;
 }
 
 

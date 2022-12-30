@@ -5,7 +5,13 @@ import { data } from "../data/data";
 // Return example: ['name1', 'name2', ... , 'nameN']
 
 export function lowMoonsPlanets(data) {
-  // Your code goes here...
+  let names = [];
+  data.planets.filter(planet => {
+    if (planet.moonsCount < 10) {
+      names.push(planet.name)
+    }
+  })
+  return names;
 }
 
 

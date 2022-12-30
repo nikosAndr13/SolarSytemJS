@@ -5,7 +5,22 @@ import { data } from "../data/data";
 // Return example: 1902
 
 export function getGreatestDiscoveryYear(data) {
-  // Your code goes here...
+  const discoveryYears = data.asteroids.map(asteroid => asteroid.discoveryYear);
+
+  const counts = {};
+  discoveryYears.map(year => {
+    const discoveries = discoveryYears.filter(y => y === year);
+    counts[year] = discoveries.length;
+  })
+
+  const maxYear = Object.keys(counts).reduce((maxYear, year) => {
+    if (counts[year] > counts[maxYear]) {
+      return Number(year);
+    } else {
+      return Number(maxYear);
+    }
+  })
+   return maxYear;
 }
 
 
