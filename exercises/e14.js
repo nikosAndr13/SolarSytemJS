@@ -5,11 +5,7 @@ import { data } from "../data/data";
 // Return example: 234234.234
 
 export function getOrbitalPeriodsSum(data) {
-  let array = [];
-  let avg;
-  data.asteroids.map(asteroid => array.push(asteroid.orbitalPeriod))
-  avg = array.reduce((acc, val) => (acc + val))
-  return avg;
+  return data.asteroids.reduce((acc, val) => acc + val.orbitalPeriod, 0)
 }
 
 
