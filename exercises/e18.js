@@ -6,13 +6,16 @@ import { minBy, maxBy } from "./e17";
 // Return example: 1902
 
 export function getGreatestDiscoveryYear(data) {
-  const discoveryYears = data.asteroids.map(asteroid => asteroid.discoveryYear);
 
   const counts = {};
-  discoveryYears.map(year => {
-    const discoveries = discoveryYears.filter(y => y === year);
-    counts[year] = discoveries.length;
-  })
+  data.asteroids.reduce((acc, el) => {
+    if (acc[el.discoveryYear]) {
+      acc[el.discoveryYear]++;
+    } else {
+      acc[el.discoveryYear] = 1;
+    }
+    return acc;
+  },counts);
 
   const maxYear = Object.keys(counts).reduce((maxYear, year) => {
     if (counts[year] > counts[maxYear]) {
