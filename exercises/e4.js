@@ -5,14 +5,12 @@ import { data } from "../data/data";
 // Return example: ['name1', 'name2', ... , 'nameN']
 
 export function getPlanetsWithLowGravity(data) {
-  const gravity = []
-  data.planets.filter(planet => {
+  return data.planets.reduce((acc, planet) => {
     if (planet.gravity < 10) {
-      gravity.push(planet.name)
+      acc.push(planet.name);
     }
-  })
-
-  return gravity;
+    return acc;
+  }, []);
 }
 
 
